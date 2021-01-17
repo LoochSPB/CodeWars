@@ -1,6 +1,4 @@
-package ru.codeWars.Kyu6;
-
-import java.util.Scanner;
+package ru.codeWars.spinWords;
 
 public class SpinWords {
 
@@ -16,43 +14,43 @@ public class SpinWords {
             System.out.println((spinWord("welcome")));
             int answer;
             String words;
-            do {
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Hello! Type the word or phrase and look what will happen!");
-
-                words = scan.nextLine();
-                String[] splitWords = words.split(" ", words.length());
-                int[] charCount = new int[splitWords.length];
-                String[] finalPhrase = new String[splitWords.length];
-
-                for (int i = 0; i < splitWords.length; i++) {
-                    String countedWord = splitWords[i];
-                    charCount[i] = countedWord.length();
-                }
-                for (int i = 0; i < charCount.length; i++) {
-                    if (charCount[i] >= 3) {
-                        finalPhrase[i] = spinWord(splitWords[i]).toString();
-                    } else {
-                        finalPhrase[i] = splitWords[i];
-                    }
-                }
-                System.out.println("Here you go!");
-                for (int i = 0; i < finalPhrase.length; i++) {
-                    System.out.print(finalPhrase[i] + " ");
-                }
-                System.out.println(" ");
-                System.out.println("Try again? 1 - yes, 0 - no");
-                answer = scan.nextInt();
-            } while (answer == 1);
+//            do {
+//                Scanner scan = new Scanner(System.in);
+//                System.out.println("Hello! Type the word or phrase and look what will happen!");
+//
+//                words = scan.nextLine();
+//                String[] splitWords = words.split(" ", words.length());
+//                int[] charCount = new int[splitWords.length];
+//                String[] finalPhrase = new String[splitWords.length];
+//
+//                for (int i = 0; i < splitWords.length; i++) {
+//                    String countedWord = splitWords[i];
+//                    charCount[i] = countedWord.length();
+//                }
+//                for (int i = 0; i < charCount.length; i++) {
+//                    if (charCount[i] >= 3) {
+//                        finalPhrase[i] = spinWord(splitWords[i]).toString();
+//                    } else {
+//                        finalPhrase[i] = splitWords[i];
+//                    }
+//                }
+//                System.out.println("Here you go!");
+//                for (int i = 0; i < finalPhrase.length; i++) {
+//                    System.out.print(finalPhrase[i] + " ");
+//                }
+//                System.out.println(" ");
+//                System.out.println("Try again? 1 - yes, 0 - no");
+//                answer = scan.nextInt();
+//            } while (answer == 1);
 
 
         }
-    }
+
     static String spinWord (String startWord) {
         String [] splitWords = startWord.split(" ", startWord.length());
         int [] charCount = new int[splitWords.length];
         String [] finalPhrase = new String[splitWords.length];
-
+        String finalPhraseString = "";
         for (int i = 0; i < splitWords.length; i++) {
             String countedWord = splitWords[i];
             charCount[i] = countedWord.length();
@@ -70,9 +68,8 @@ public class SpinWords {
             }
 
         }
-        String finalPhraseString;
         for (int i = 0; i < finalPhrase.length; i++) {
-            finalPhraseString = finalPhrase [i] + finalPhraseString;
+            finalPhraseString = finalPhraseString +finalPhrase [i];
         }
         return finalPhraseString;
     }
